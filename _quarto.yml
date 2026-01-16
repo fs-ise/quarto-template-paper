@@ -5,15 +5,18 @@ bibliography: references.bib
 csl: csl/apa.csl
 
 manuscript:
-  article: index.qmd
+  article: paper.qmd
+
+filters:
+  - filters/git-meta.lua
 
 format:
-  html: default
+  html:
+    other-formats: false
   docx: default
-  pdf: default
+  pdf:
+    include-in-header: tex/inhouse.tex
 
 execute:
   freeze: true
-
-
 

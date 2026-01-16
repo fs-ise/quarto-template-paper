@@ -1,0 +1,41 @@
+% tex/inhouse.tex
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[labelsep=period,font=bf]{caption}
+\usepackage[margin=1in, bottom=2.54cm]{geometry}
+
+\newcommand{\changefont}{\fontsize{9}{11}\selectfont}
+
+% Logo (PDF preferred)
+\newcommand{\FSLogo}{%
+  \begingroup
+  \IfFileExists{assets/fs_logo_blue.pdf}{%
+    \includegraphics[height=10mm]{assets/fs_logo_blue.pdf}%
+  }{%
+    \changefont{\textcolor{gray}{FS}}%
+  }%
+  \endgroup
+}
+
+% Header text is injected from YAML (Pandoc-expanded)
+\newcommand{\FSHeaderText}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\FSLogo}
+\fancyhead[C]{\changefont{\texttt{\textcolor{gray}{\FSHeaderText}}}}
+\fancyfoot[C]{\changefont\textbf{\thepage}}
+
+% Make the first page (plain pagestyle) use the same header/footer as fancy
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyhead[R]{\FSLogo}%
+  \fancyhead[C]{\changefont{\texttt{\textcolor{gray}{\FSHeaderText}}}}%
+  \fancyfoot[C]{\changefont\textbf{\thepage}}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
