@@ -1,0 +1,6 @@
+filters:
+  - filters/git-meta.lua
+
+format:
+  pdf:
+    include-in-header: tex/inhouse.tex

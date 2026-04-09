@@ -7,16 +7,11 @@ csl: csl/apa.csl
 manuscript:
   article: paper.qmd
 
-filters:
-  - filters/git-meta.lua
-
 format:
   html:
     other-formats: false
   docx: default
-  pdf:
-    include-in-header: tex/inhouse.tex
+  pdf: default
 
 execute:
   freeze: true
-
