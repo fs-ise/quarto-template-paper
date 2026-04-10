@@ -1,5 +1,5 @@
 ---
-title: Data work
+title: "Paper title"
 authors:
   - name: Gerit Wagner
     affiliation: Frankfurt School of Finance & Management
