@@ -2,12 +2,14 @@
 
 ## Build
 
+```sh
 mkdir my-paper
 cd my-paper
 quarto use template fs-ise/paper-template
 
 make working
 make preprint
+```
 
 ## Section numbering in preprint
 

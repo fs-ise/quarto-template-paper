@@ -7,18 +7,18 @@ authors:
     corresponding: true
 ---
 
-## Abstract
+# Abstract
 
-## Introduction
+# Introduction
 
-## Background
+# Background
 
 This is a simple placeholder for the manuscript's main document [@knuth84].
 
-## Methodology
+# Methodology
 
-## Findings
+# Findings
 
-## Discussion
+# Discussion
 
 # References
