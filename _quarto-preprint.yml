@@ -1,3 +1,8 @@
 format:
   pdf:
     template: template/main.tex
+    include-in-header: tex/inhouse.tex
+    number-sections: false
+
+filters:
+  - filters/git-meta.lua

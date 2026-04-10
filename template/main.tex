@@ -2,6 +2,13 @@
 
 \usepackage{hyperref}
 \usepackage{ifthen}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[labelsep=period,font=bf]{caption}
+\usepackage[margin=1in, bottom=2.54cm]{geometry}
+
+\newcommand{\changefont}{\fontsize{9}{11}\selectfont}
 
 $if(csl-refs)$
 \usepackage{calc}
@@ -35,7 +42,13 @@ $endfor$
 
 $if(is_preprint)$
 \newcommand{\PreprintTitle}{$title$}
-\newcommand{\PreprintAuthors}{$for(authors)$$if(authors.name)$$authors.name$$else$$authors$$endif$$sep$\\[0.2em]$endfor$}
+\newcommand{\PreprintAuthors}{
+	$for(by-author)$
+	$by-author.name.literal$\\
+	{\small $for(by-author.affiliations)$$it.name$$sep$, $endfor$}
+	$sep$\\[0.5em]
+	$endfor$
+}
 \newcommand{\PreprintDate}{$if(date)$$date$$else$\today$endif$}
 \newcommand{\VersionLabel}{$if(version_label)$$version_label$$else$Preprint$endif$}
 \newcommand{\CitationText}{$if(citation_text)$$citation_text$$else$[citation text not provided]$endif$}
@@ -55,7 +68,6 @@ $endif$
 
 $if(is_preprint)$
 \input{template/sections/cover_page.tex}
-\input{template/sections/citation_block.tex}
 $endif$
 
 $body$

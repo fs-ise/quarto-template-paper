@@ -17,8 +17,6 @@ This is a simple placeholder for the manuscript's main document [@knuth84].
 
 ## Methodology
 
-\newpage
-
 ## Findings
 
 ## Discussion
