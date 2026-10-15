@@ -3,7 +3,7 @@
 Create a new paper project with Copier:
 
 ```sh
-copier copy gh:fs-ise/quarto-template-paper my-paper
+copier copy --trust gh:fs-ise/quarto-template-paper my-paper
 cd my-paper
 quarto preview paper.qmd
 ```
