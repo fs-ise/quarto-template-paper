@@ -1,0 +1,14 @@
+[project]
+name = "quarto-template-paper-tests"
+version = "0.0.0"
+requires-python = ">=3.11"
+dependencies = [
+  "copier>=9.2,<10",
+  "pytest>=8,<9",
+  "pyyaml>=6,<7",
+]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+markers = ["integration: invokes Copier or Quarto"]

@@ -1,0 +1,41 @@
+_subdirectory: copier-template
+_answers_file: .copier-answers.yml
+_min_copier_version: "9.2.0"
+_skip_if_exists:
+  - paper.qmd
+  - references.bib
+_tasks:
+  - command: >-
+      if git rev-parse --show-toplevel >/dev/null 2>&1; then
+        printf '%s\n' "An enclosing Git repository already exists; skipping Git initialization, staging, and commit.";
+      else
+        git init && git add -A &&
+        if git var GIT_AUTHOR_IDENT >/dev/null 2>&1 && git var GIT_COMMITTER_IDENT >/dev/null 2>&1; then
+          git commit -m "Initial commit";
+        else
+          printf '%s\n' "Git repository initialized and files staged, but no Git identity is configured. Set user.name and user.email, then run: git commit -m \"Initial commit\"";
+        fi
+      fi
+_message_after_copy: |
+  Paper project "{{ project_name }}" created successfully.
+
+  Next steps:
+    cd "{{ _copier_conf.dst_path }}"
+    quarto preview paper.qmd
+
+  Render outputs with `quarto render` or `make working` / `make preprint`.
+
+project_name:
+  type: str
+  help: Name of the Quarto project
+  default: My paper
+
+paper_title:
+  type: str
+  help: Paper title
+  default: "{{ project_name }}"
+
+authors:
+  type: str
+  help: Author(s), separated by commas
+  default: Author Name

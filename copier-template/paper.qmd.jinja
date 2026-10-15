@@ -1,10 +1,11 @@
 ---
-title: "Paper title"
+title: "{{ paper_title }}"
 authors:
-  - name: Gerit Wagner
+{% for author in authors.split(',') %}
+  - name: {{ author.strip() | tojson }}
     affiliation: Frankfurt School of Finance & Management
     roles: writing
-    corresponding: true
+{% endfor %}
 ---
 
 # Abstract
@@ -13,7 +14,7 @@ authors:
 
 # Background
 
-This is a simple placeholder for the manuscript's main document [@knuth84].
+Write your manuscript here.
 
 # Methodology
 
