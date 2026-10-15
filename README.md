@@ -5,7 +5,7 @@
 ```sh
 mkdir my-paper
 cd my-paper
-quarto use template fs-ise/paper-template
+quarto use template fs-ise/quarto-template-paper
 
 make working
 make preprint
